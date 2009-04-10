@@ -1,0 +1,38 @@
+splash_pidfound()
+{
+	pidof esplash > /dev/null 2>&1 || return 1
+	return 0
+}
+
+splash_running()
+{
+	if [ -x /sbin/esplash ] && splash_pidfound; then
+		return 0
+	fi
+	return 1
+}
+
+splash_start()
+{
+	local fb
+	fb=$(grep FB /etc/default/esplash | sed -e 's/...//')
+	if [ -z "$fb" ]; then
+		fb=/dev/fb0
+	fi
+
+	if splash_running; then
+		return 0
+	elif [ ! -c $fb ]; then
+		return 1
+	fi
+
+	esplash -i /etc/default/esplash -f /var/lib/esplash/esplash_fifo &
+	return 0
+}
+
+splash_progress()
+{
+	splash_running || splash_start || return 0;
+	echo $1 > /var/lib/esplash/esplash_fifo || return 1
+	return 0
+}

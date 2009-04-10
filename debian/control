@@ -1,0 +1,20 @@
+Source: esplash-data
+Section: gui
+Priority: optional
+Maintainer: Alexander Kerner <lunohod@openinkpot.org>
+Build-Depends: debhelper (>= 6)
+XCS-Cross-Host-Build-Depends: debhelper (>= 6)
+Standards-Version: 3.8.0
+Format: 3.0 (native)
+
+Package: esplash-data-v3
+Architecture: all
+Conflicts: esplash-data-n516
+Description: Bootsplash data files
+ This package provides data files for esplash utility.
+
+Package: esplash-data-n516
+Architecture: all
+Conflicts: esplash-data-v3
+Description: Bootsplash data files
+ This package provides data files for esplash utility.

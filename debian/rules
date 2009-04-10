@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+
+flavours := v3 n516
+
+build-arch:
+build-indep:
+
+build: build-arch build-indep
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install: build-indep
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	for FLAVOUR in $(flavours); do \
+		PKGDIR=$(CURDIR)/debian/esplash-data-$$FLAVOUR; \
+		mkdir -p 	$$PKGDIR/sbin; \
+		mkdir -p	$$PKGDIR/etc/default; \
+		mkdir -p	$$PKGDIR/var/lib/esplash; \
+		install -T -m 0644 esplash-$$FLAVOUR.cfg $$PKGDIR/etc/default/esplash; \
+		install -m 0644 splash-functions $$PKGDIR/sbin/; \
+		install -m 0644 oi-bootlogo.lzma $$PKGDIR/var/lib/esplash; \
+		mkfifo $$PKGDIR/var/lib/esplash/esplash_fifo; \
+	done
+	dh_install
+
+binary-arch:
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_link
+	dh_strip
+	dh_compress
+#	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install 
