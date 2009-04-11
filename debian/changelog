@@ -1,3 +1,10 @@
+esplash-data (0.2-0) asimov; urgency=low
+
+   * moved oi-bootsplash.lzma to /usr/share/esplash-data and made a symlink /var/lib/esplash/logo.lzma
+   * splash-functions: source config file
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sat, 11 Apr 2009 23:15:50 +0200
+
 esplash-data (0.1-0) asimov; urgency=low
 
   * first build
