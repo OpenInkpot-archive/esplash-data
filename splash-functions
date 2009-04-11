@@ -1,3 +1,7 @@
+if [ -f /etc/default/esplash ]; then
+	. /etc/default/esplash
+fi
+
 splash_pidfound()
 {
 	pidof esplash > /dev/null 2>&1 || return 1
@@ -14,15 +18,13 @@ splash_running()
 
 splash_start()
 {
-	local fb
-	fb=$(grep FB /etc/default/esplash | sed -e 's/...//')
-	if [ -z "$fb" ]; then
-		fb=/dev/fb0
+	if [ -z "$FB" ]; then
+		FB=/dev/fb0
 	fi
 
 	if splash_running; then
 		return 0
-	elif [ ! -c $fb ]; then
+	elif [ ! -c $FB ]; then
 		return 1
 	fi
 
