@@ -1,3 +1,10 @@
+esplash-data (0.3-0) asimov; urgency=low
+
+   * added 270 degree rotated OI bootscreen
+   * fixed packaging
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sun, 12 Apr 2009 23:24:10 +0200
+
 esplash-data (0.2-0) asimov; urgency=low
 
    * moved oi-bootsplash.lzma to /usr/share/esplash-data and made a symlink /var/lib/esplash/logo.lzma
