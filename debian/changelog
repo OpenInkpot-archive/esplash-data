@@ -1,3 +1,9 @@
+esplash-data (0.4-0) asimov; urgency=low
+
+   * added screen orientation setting
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Mon, 13 Apr 2009 01:47:11 +0200
+
 esplash-data (0.3-0) asimov; urgency=low
 
    * added 270 degree rotated OI bootscreen
