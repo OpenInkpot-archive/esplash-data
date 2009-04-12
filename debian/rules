@@ -24,7 +24,11 @@ install: build-indep
 		mkdir -p	$$PKGDIR/usr/share/esplash-data; \
 		install -T -m 0644 esplash-$$FLAVOUR.cfg $$PKGDIR/etc/default/esplash; \
 		install -m 0644 splash-functions $$PKGDIR/sbin/; \
-		install -m 0644 oi-bootlogo.lzma $$PKGDIR/usr/share/esplash-data/; \
+		if [ "$$FLAVOUR" = "n516" ]; then \
+			install -m 0644 oi-bootlogo-270.lzma $$PKGDIR/usr/share/esplash-data/; \
+		else \
+			install -m 0644 oi-bootlogo.lzma $$PKGDIR/usr/share/esplash-data/; \
+		fi; \
 		mkfifo $$PKGDIR/var/lib/esplash/esplash_fifo; \
 	done
 	dh_install

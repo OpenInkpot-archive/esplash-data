@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ -h /var/lib/esplash/logo.lzma ]; then
+	rm -f /var/lib/esplash/logo.lzma
+fi
+
+#DEBHELPER#
+
+exit 0
