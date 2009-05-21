@@ -2,19 +2,30 @@ Source: esplash-data
 Section: gui
 Priority: optional
 Maintainer: Alexander Kerner <lunohod@openinkpot.org>
-Build-Depends: debhelper (>= 6)
-XCS-Cross-Host-Build-Depends: debhelper (>= 6)
+Build-Depends: debhelper (>= 7), mk-rawpic, lzma
+XCS-Cross-Host-Build-Depends: debhelper (>= 7), mk-rawpic, lzma
 Standards-Version: 3.8.0
-Format: 3.0 (native)
+
+Package: esplash-sysvinit
+Architecture: all
+Depends: busybox (>= 1:1.12.0-8)
+Description: Bootsplash support for sysvinit
+ This package provides hooks for sysvinit to enable drawing boot splash.
 
 Package: esplash-data-v3
 Architecture: all
-Conflicts: esplash-data-n516
-Description: Bootsplash data files
- This package provides data files for esplash utility.
+Depends: esplash-sysvinit
+Description: OpenInkpot bootsplash for V3
+ This package provides OpenInkpot bootsplash picture and config for Hanlin V3.
 
 Package: esplash-data-n516
 Architecture: all
-Conflicts: esplash-data-v3
-Description: Bootsplash data files
- This package provides data files for esplash utility.
+Depends: esplash-sysvinit
+Description: OpenInkpot bootsplash for N516
+ This package provides OpenInkpot bootsplash picture and config for Hanvon N516.
+
+Package: esplash-data-azbooka-n516
+Architecture: all
+Depends: esplash-sysvinit
+Description: Azbooka bootsplash for N516
+ This package provides Azbooka bootsplash picture and config for Hanvon N516.

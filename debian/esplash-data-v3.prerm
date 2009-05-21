@@ -2,8 +2,8 @@
 
 set -e
 
-if [ -h /var/lib/esplash/logo.lzma ]; then
-	rm -f /var/lib/esplash/logo.lzma
+if [ -h /etc/default/esplash ]; then
+	rm -f /etc/default/esplash
 fi
 
 #DEBHELPER#

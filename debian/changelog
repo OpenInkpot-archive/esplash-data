@@ -1,3 +1,10 @@
+esplash-data (0.5) asimov; urgency=low
+
+  * Native package.
+  * Redone splash configuration.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 21 May 2009 22:23:36 +0700
+
 esplash-data (0.4-0) asimov; urgency=low
 
    * added screen orientation setting

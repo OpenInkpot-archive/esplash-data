@@ -2,8 +2,8 @@
 
 set -e
 
-if [ ! -f /var/lib/esplash/logo.lzma ]; then
-	ln -sf /usr/share/esplash-data/oi-bootlogo-270.lzma /var/lib/esplash/logo.lzma
+if [ ! -f /etc/default/esplash ]; then
+    ln -s /usr/share/esplash-data/n516.cfg /etc/default/esplash
 fi
 
 #DEBHELPER#

@@ -1,40 +1,17 @@
-if [ -f /etc/default/esplash ]; then
-	. /etc/default/esplash
-fi
-
-splash_pidfound()
-{
-	pidof esplash > /dev/null 2>&1 || return 1
-	return 0
+splash_pidfound() {
+	pidof esplash > /dev/null 2>&1
 }
 
-splash_running()
-{
-	if [ -x /sbin/esplash ] && splash_pidfound; then
-		return 0
-	fi
-	return 1
+splash_running() {
+	[ -x /sbin/esplash ] && splash_pidfound
 }
 
-splash_start()
-{
-	if [ -z "$FB" ]; then
-		FB=/dev/fb0
-	fi
-
-	if splash_running; then
-		return 0
-	elif [ ! -c $FB ]; then
-		return 1
-	fi
-
-	esplash -i /etc/default/esplash -f /var/lib/esplash/esplash_fifo &
-	return 0
+splash_start() {
+	[ ! -e /etc/default/esplash ] || esplash -b -i /etc/default/esplash -f /var/lib/esplash/esplash_fifo
 }
 
-splash_progress()
-{
-	splash_running || splash_start || return 0;
+splash_progress() {
+	splash_running || splash_start || return 0
 	echo $1 > /var/lib/esplash/esplash_fifo || return 1
 	return 0
 }

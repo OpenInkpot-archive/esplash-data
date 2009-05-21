@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-flavours := v3 n516
+flavours := azbooka-n516 v3 n516
 
 build-arch:
 build-indep:
@@ -12,26 +12,33 @@ clean:
 	dh_testroot
 	dh_clean
 
+DATADIR=/usr/share/esplash-data
+FIFODIR=/var/lib/esplash
+
 install: build-indep
 	dh_testdir
 	dh_testroot
 	dh_installdirs
+
+	mkdir -p $(CURDIR)/debian/esplash-sysvinit/sbin
+	install -m 0644 splash-functions $(CURDIR)/debian/esplash-sysvinit/sbin
+
+	mkdir -p $(CURDIR)/debian/esplash-sysvinit/etc/default
+
+	mkdir -p $(CURDIR)/debian/esplash-sysvinit$(FIFODIR)
+	mkfifo $(CURDIR)/debian/esplash-sysvinit$(FIFODIR)/esplash_fifo
+
 	for FLAVOUR in $(flavours); do \
 		PKGDIR=$(CURDIR)/debian/esplash-data-$$FLAVOUR; \
-		mkdir -p 	$$PKGDIR/sbin; \
-		mkdir -p	$$PKGDIR/etc/default; \
-		mkdir -p	$$PKGDIR/var/lib/esplash; \
-		mkdir -p	$$PKGDIR/usr/share/esplash-data; \
-		install -T -m 0644 esplash-$$FLAVOUR.cfg $$PKGDIR/etc/default/esplash; \
-		install -m 0644 splash-functions $$PKGDIR/sbin/; \
-		if [ "$$FLAVOUR" = "n516" ]; then \
-			install -m 0644 oi-bootlogo-270.lzma $$PKGDIR/usr/share/esplash-data/; \
-		else \
-			install -m 0644 oi-bootlogo.lzma $$PKGDIR/usr/share/esplash-data/; \
-		fi; \
-		mkfifo $$PKGDIR/var/lib/esplash/esplash_fifo; \
+		mkdir -p $$PKGDIR$(DATADIR); \
+		install -T -m 0644 $$FLAVOUR.cfg $$PKGDIR$(DATADIR)/$$FLAVOUR.cfg; \
 	done
-	dh_install
+
+	install -m 0644 oi-bootlogo-270.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)
+	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-v3$(DATADIR)
+
+	mk-rawpic -r270 -d3 azbooka-splash.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
+	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
 
 binary-arch:
 
@@ -41,7 +48,7 @@ binary-indep: install
 	dh_link
 	dh_strip
 	dh_compress
-#	dh_fixperms
+	dh_fixperms
 	dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps
