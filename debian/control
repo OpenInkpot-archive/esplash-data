@@ -1,7 +1,7 @@
 Source: esplash-data
 Section: gui
 Priority: optional
-Maintainer: Alexander Kerner <lunohod@openinkpot.org>
+Maintainer: Mikhail Gusarov <dottedmag@openinkpot.org>
 Build-Depends: debhelper (>= 7), mk-rawpic, lzma
 XCS-Cross-Host-Build-Depends: debhelper (>= 7), mk-rawpic, lzma
 Standards-Version: 3.8.0
