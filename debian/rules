@@ -32,6 +32,7 @@ install: build-indep
 		PKGDIR=$(CURDIR)/debian/esplash-data-$$FLAVOUR; \
 		mkdir -p $$PKGDIR$(DATADIR); \
 		install -T -m 0644 $$FLAVOUR.cfg $$PKGDIR$(DATADIR)/$$FLAVOUR.cfg; \
+		install -T -m 0644 $$FLAVOUR-shutdown.cfg $$PKGDIR$(DATADIR)/$$FLAVOUR-shutdown.cfg; \
 	done
 
 	install -m 0644 oi-bootlogo-270.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)

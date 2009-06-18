@@ -5,6 +5,9 @@ set -e
 if [ ! -f /etc/default/esplash ]; then
     ln -s /usr/share/esplash-data/n516.cfg /etc/default/esplash
 fi
+if [ ! -f /etc/default/fb-clean ]; then
+    ln -s /usr/share/esplash-data/n516-shutdown.cfg /etc/default/fb-clean
+fi
 
 #DEBHELPER#
 

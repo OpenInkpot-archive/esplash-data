@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /etc/default/esplash
+. /etc/default/fb-clean
 
 case $1 in
     stop)

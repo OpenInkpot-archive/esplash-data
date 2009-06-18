@@ -6,6 +6,10 @@ if [ -h /etc/default/esplash ]; then
 	rm -f /etc/default/esplash
 fi
 
+if [ -h /etc/default/fb-clean ]; then
+	rm -f /etc/default/fb-clean
+fi
+
 #DEBHELPER#
 
 exit 0
