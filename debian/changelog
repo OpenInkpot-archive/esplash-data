@@ -1,3 +1,9 @@
+esplash-data (0.6) asimov; urgency=low
+
+  * Merged in shutdown images.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 18 Jun 2009 10:56:01 +0700
+
 esplash-data (0.5) asimov; urgency=low
 
   * Native package.

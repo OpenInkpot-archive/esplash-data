@@ -40,11 +40,21 @@ install: build-indep
 	mk-rawpic -r270 -d3 azbooka-splash.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
 	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
 
+	mk-rawpic -r270 -d3 shutdown.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-shutdown
+	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-shutdown
+
+	mk-rawpic -r270 -d3 shutdown.png $(CURDIR)/debian/esplash-data-n516$(DATADIR)/n516-shutdown
+	lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)/n516-shutdown
+
+	mk-rawpic -d2 shutdown.png $(CURDIR)/debian/esplash-data-v3$(DATADIR)/v3-shutdown
+	lzma $(CURDIR)/debian/esplash-data-v3$(DATADIR)/v3-shutdown
+
 binary-arch:
 
 binary-indep: install
 	dh_testdir
 	dh_testroot
+	dh_installinit -pesplash-sysvinit --name=fb-clean --no-start -r -- stop 01 0 .
 	dh_link
 	dh_strip
 	dh_compress

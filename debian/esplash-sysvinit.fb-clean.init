@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. /etc/default/esplash
+
+case $1 in
+    stop)
+        lzmacat $SHUTDOWN_IMAGE > $FB
+        ;;
+    start|force-reload)
+        ;;
+    *)
+        echo "Usage: fb-halt {start|stop|force-reload}"
+        ;;
+esac
+exit 0
