@@ -1,3 +1,9 @@
+esplash-data (0.6.1) asimov; urgency=low
+
+  * Split shutdown images' data to separate cofiguration file.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 18 Jun 2009 12:30:53 +0700
+
 esplash-data (0.6) asimov; urgency=low
 
   * Merged in shutdown images.
