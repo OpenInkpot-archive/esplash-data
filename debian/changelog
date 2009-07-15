@@ -1,3 +1,9 @@
+esplash-data (0.6.2) asimov; urgency=low
+
+  * Update Azbooka bootsplash.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Wed, 15 Jul 2009 19:58:48 +0700
+
 esplash-data (0.6.1) asimov; urgency=low
 
   * Split shutdown images' data to separate cofiguration file.
