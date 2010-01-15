@@ -15,17 +15,20 @@ Description: Bootsplash support for sysvinit
 Package: esplash-data-v3
 Architecture: all
 Depends: esplash-sysvinit
+Conflicts: esplash-data-n516, esplash-data-azbooka-n516
 Description: OpenInkpot bootsplash for V3
  This package provides OpenInkpot bootsplash picture and config for Hanlin V3.
 
 Package: esplash-data-n516
 Architecture: all
 Depends: esplash-sysvinit
+Conflicts: esplash-data-v3, esplash-data-azbooka-n516
 Description: OpenInkpot bootsplash for N516
  This package provides OpenInkpot bootsplash picture and config for Hanvon N516.
 
 Package: esplash-data-azbooka-n516
 Architecture: all
 Depends: esplash-sysvinit
+Conflicts: esplash-data-v3, esplash-data-n516
 Description: Azbooka bootsplash for N516
  This package provides Azbooka bootsplash picture and config for Hanvon N516.

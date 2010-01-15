@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-flavours := azbooka-n516 v3 n516
-
 build-arch:
 build-indep:
 
@@ -28,13 +26,27 @@ install: build-indep
 	mkdir -p $(CURDIR)/debian/esplash-sysvinit$(FIFODIR)
 	mkfifo $(CURDIR)/debian/esplash-sysvinit$(FIFODIR)/esplash_fifo
 
-	for FLAVOUR in $(flavours); do \
-		PKGDIR=$(CURDIR)/debian/esplash-data-$$FLAVOUR; \
-		mkdir -p $$PKGDIR$(DATADIR); \
-		install -T -m 0644 $$FLAVOUR.cfg $$PKGDIR$(DATADIR)/$$FLAVOUR.cfg; \
-		install -T -m 0644 $$FLAVOUR-shutdown.cfg $$PKGDIR$(DATADIR)/$$FLAVOUR-shutdown.cfg; \
-	done
+# Dirs
+	mkdir -p $(CURDIR)/debian/esplash-data-v3$(DATADIR)
+	mkdir -p $(CURDIR)/debian/esplash-data-n516$(DATADIR)
+	mkdir -p $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)
 
+# Device definitions (FB address)
+	install -T -m 0644 device-v3 $(CURDIR)/debian/esplash-data-v3$(DATADIR)/device
+	install -T -m 0644 device-n516 $(CURDIR)/debian/esplash-data-n516$(DATADIR)/device
+	install -T -m 0644 device-n516 $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/device
+
+# Startup configs
+	install -T -m 0644 v3.cfg $(CURDIR)/debian/esplash-data-v3$(DATADIR)/startup
+	install -T -m 0644 n516.cfg $(CURDIR)/debian/esplash-data-n516$(DATADIR)/startup
+	install -T -m 0644 azbooka-n516.cfg $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/startup
+
+# Shutdown configs
+	install -T -m 0644 v3-shutdown.cfg $(CURDIR)/debian/esplash-data-v3$(DATADIR)/shutdown
+	install -T -m 0644 n516-shutdown.cfg $(CURDIR)/debian/esplash-data-n516$(DATADIR)/shutdown
+	install -T -m 0644 azbooka-n516-shutdown.cfg $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/shutdown
+
+# Pictures
 	install -m 0644 oi-bootlogo-270.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)
 	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-v3$(DATADIR)
 

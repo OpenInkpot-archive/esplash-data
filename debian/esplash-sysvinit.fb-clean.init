@@ -1,9 +1,16 @@
-#!/bin/sh
+ #!/bin/sh
 
-. /etc/default/fb-clean
+SHUTDOWN_CONFIG=/usr/share/esplash-data/shutdown
+
+. /usr/share/esplash-data/device
+
+if [ -f /etc/default/esplash ]; then
+    . /etc/default/esplash
+fi
 
 case $1 in
     stop)
+        . $SHUTDOWN_CONFIG
         lzmacat $SHUTDOWN_IMAGE > $FB
         ;;
     start|force-reload)
