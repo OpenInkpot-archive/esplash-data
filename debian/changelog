@@ -1,3 +1,9 @@
+esplash-data (0.6.4) zelazny; urgency=low
+
+  * Stop mucking with /etc/default symlinks.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Fri, 15 Jan 2010 12:11:47 +0600
+
 esplash-data (0.6.3) asimov; urgency=low
 
   * Azbooka bootsplash updated again.
