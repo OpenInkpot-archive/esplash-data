@@ -47,16 +47,16 @@ install: build-indep
 	install -T -m 0644 azbooka-n516-shutdown.cfg $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/shutdown
 
 # Pictures
-	install -m 0644 oi-bootlogo-270.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)
+	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)
 	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-v3$(DATADIR)
 
-	mk-rawpic -r270 -d3 azbooka-splash.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
-	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-270
+	mk-rawpic -d3 azbooka-splash.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka
+	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka
 
-	mk-rawpic -r270 -d3 shutdown.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-shutdown
+	mk-rawpic -d3 shutdown.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-shutdown
 	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka-shutdown
 
-	mk-rawpic -r270 -d3 shutdown.png $(CURDIR)/debian/esplash-data-n516$(DATADIR)/n516-shutdown
+	mk-rawpic -d3 shutdown.png $(CURDIR)/debian/esplash-data-n516$(DATADIR)/n516-shutdown
 	lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)/n516-shutdown
 
 	mk-rawpic -d2 shutdown.png $(CURDIR)/debian/esplash-data-v3$(DATADIR)/v3-shutdown
