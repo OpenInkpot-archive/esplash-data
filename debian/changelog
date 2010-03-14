@@ -1,3 +1,9 @@
+esplash-data (0.6.5) zelazny; urgency=low
+
+  * Get rid of rotated images
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sun, 14 Mar 2010 20:15:48 +0100
+
 esplash-data (0.6.4) zelazny; urgency=low
 
   * Stop mucking with /etc/default symlinks.
