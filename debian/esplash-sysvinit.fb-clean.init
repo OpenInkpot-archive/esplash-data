@@ -11,7 +11,7 @@ fi
 case $1 in
     stop)
         . $SHUTDOWN_CONFIG
-        lzmacat $SHUTDOWN_IMAGE > $FB
+        lzcat $SHUTDOWN_IMAGE > $FB
         ;;
     start|force-reload)
         ;;
