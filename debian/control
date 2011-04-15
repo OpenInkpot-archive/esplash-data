@@ -2,6 +2,7 @@ Source: esplash-data
 Section: gui
 Priority: optional
 Maintainer: Mikhail Gusarov <dottedmag@openinkpot.org>
+Uploaders: Alexander Kerner <lunohod@openinkpot.org>
 Build-Depends: debhelper (>= 7), mk-rawpic, lzma
 XCS-Cross-Host-Build-Depends: debhelper (>= 7), mk-rawpic, lzma
 Standards-Version: 3.8.0
@@ -32,3 +33,10 @@ Depends: esplash-sysvinit
 Conflicts: esplash-data-v3, esplash-data-n516
 Description: Azbooka bootsplash for N516
  This package provides Azbooka bootsplash picture and config for Hanvon N516.
+
+Package: esplash-data-eb600
+Architecture: all
+Depends: esplash-sysvinit
+Conflicts: esplash-data-n516, esplash-data-azbooka-n516, esplash-data-v3
+Description: OpenInkpot bootsplash for EB600
+ This package provides OpenInkpot bootsplash picture and config for Netronix EB600.
