@@ -1,3 +1,9 @@
+esplash-data (0.6.9) zelazny; urgency=low
+
+  * Add settings for PRS505
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sun, 11 Sep 2011 00:06:06 +0200
+
 esplash-data (0.6.8) zelazny; urgency=low
 
   * Add settings for eb600
