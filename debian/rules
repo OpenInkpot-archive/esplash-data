@@ -31,22 +31,26 @@ install: build-indep
 	mkdir -p $(CURDIR)/debian/esplash-data-eb600$(DATADIR)
 	mkdir -p $(CURDIR)/debian/esplash-data-n516$(DATADIR)
 	mkdir -p $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)
+	mkdir -p $(CURDIR)/debian/esplash-data-prs505$(DATADIR)
 
 # Device definitions (FB address)
 	install -T -m 0644 device-v3 $(CURDIR)/debian/esplash-data-v3$(DATADIR)/device
 	install -T -m 0644 device-v3 $(CURDIR)/debian/esplash-data-eb600$(DATADIR)/device
 	install -T -m 0644 device-n516 $(CURDIR)/debian/esplash-data-n516$(DATADIR)/device
 	install -T -m 0644 device-n516 $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/device
+	install -T -m 0644 device-prs505 $(CURDIR)/debian/esplash-data-prs505$(DATADIR)/device
 
 # Startup configs
 	install -T -m 0644 v3.cfg $(CURDIR)/debian/esplash-data-v3$(DATADIR)/startup
 	install -T -m 0644 v3.cfg $(CURDIR)/debian/esplash-data-eb600$(DATADIR)/startup
+	install -T -m 0644 v3.cfg $(CURDIR)/debian/esplash-data-prs505$(DATADIR)/startup
 	install -T -m 0644 n516.cfg $(CURDIR)/debian/esplash-data-n516$(DATADIR)/startup
 	install -T -m 0644 azbooka-n516.cfg $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/startup
 
 # Shutdown configs
 	install -T -m 0644 v3-shutdown.cfg $(CURDIR)/debian/esplash-data-v3$(DATADIR)/shutdown
 	install -T -m 0644 v3-shutdown.cfg $(CURDIR)/debian/esplash-data-eb600$(DATADIR)/shutdown
+	install -T -m 0644 v3-shutdown.cfg $(CURDIR)/debian/esplash-data-prs505$(DATADIR)/shutdown
 	install -T -m 0644 n516-shutdown.cfg $(CURDIR)/debian/esplash-data-n516$(DATADIR)/shutdown
 	install -T -m 0644 azbooka-n516-shutdown.cfg $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/shutdown
 
@@ -54,6 +58,7 @@ install: build-indep
 	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-n516$(DATADIR)
 	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-v3$(DATADIR)
 	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-eb600$(DATADIR)
+	install -m 0644 oi-bootlogo.lzma $(CURDIR)/debian/esplash-data-prs505$(DATADIR)
 
 	mk-rawpic -d3 azbooka-splash.png $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka
 	lzma $(CURDIR)/debian/esplash-data-azbooka-n516$(DATADIR)/azbooka
@@ -69,6 +74,9 @@ install: build-indep
 
 	mk-rawpic -d2 shutdown.png $(CURDIR)/debian/esplash-data-eb600$(DATADIR)/eb600-shutdown
 	lzma $(CURDIR)/debian/esplash-data-eb600$(DATADIR)/eb600-shutdown
+
+	mk-rawpic -d2 shutdown.png $(CURDIR)/debian/esplash-data-prs505$(DATADIR)/prs505-shutdown
+	lzma $(CURDIR)/debian/esplash-data-prs505$(DATADIR)/prs505-shutdown
 
 binary-arch:
 

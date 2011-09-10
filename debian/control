@@ -40,3 +40,10 @@ Depends: esplash-sysvinit
 Conflicts: esplash-data-n516, esplash-data-azbooka-n516, esplash-data-v3
 Description: OpenInkpot bootsplash for EB600
  This package provides OpenInkpot bootsplash picture and config for Netronix EB600.
+
+Package: esplash-data-prs505
+Architecture: all
+Depends: esplash-sysvinit
+Conflicts: esplash-data-n516, esplash-data-azbooka-n516, esplash-data-v3, esplash-data-eb600
+Description: OpenInkpot bootsplash for PRS505
+ This package provides OpenInkpot bootsplash picture and config for Sony PRS505.
